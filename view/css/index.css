@@ -1,0 +1,171 @@
+.tieude{
+    text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+            font-size: 30px;
+            font-weight: bolder;
+}
+.buttonBocSo{
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border-color: white;
+    background-color: rgb(117, 218, 227);
+}
+
+.buttonBocSo:hover{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgb(63, 132, 236);
+}
+.nd{
+    font-family: Noto;
+    color: blue;
+    font-size: 30px;
+}
+footer{
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: aliceblue;
+}
+.nav-than{
+    position: fixed;
+    background-image: url(https://img.lovepik.com/photo/50064/7439.jpg_wh860.jpg);
+    background-size: cover;
+    height: 100%;
+    bottom: 40px;
+    top: 60px;
+}
+
+.nav-than2{
+    position: fixed;
+    height: 100%;
+    bottom: 40px;
+    top: 60px;
+
+}
+
+.sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
+}
+
+.khambenh{
+    display: none;
+    position: fixed;
+    height: auto;
+    bottom: 40px;
+    top: 60px;
+    left: 220px;
+    right: 0px;
+}
+
+.chuandoan{
+    display: none;
+    position: fixed;
+    height: auto;
+    bottom: 40px;
+    top: 60px;
+    left: 220px;
+    right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.ds{
+    display: inline;
+    position: fixed;
+    height: auto;
+    bottom: 40px;
+    top: 60px;
+    left: 220px;
+    right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+tr{
+    margin-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.td1{
+    width: 40%;
+    font-size: 18px;
+}
+
+.td2{
+    width: 60%;
+    text-align: right;
+    font-size: 18px;
+}
+.inputWithIcon input[type="text"] {
+    padding-left: 10px;
+  }
+  
+  .inputWithIcon {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .inputWithIcon i {
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    padding: 9px 8px;
+    transition: 0.3s;
+  }
+
+  .error{
+    color: red;
+    font-style: italic;
+  }
+
+  .nav-item:hover{
+    background-color: white;
+  }
+  
+  .nav-link:hover{
+    color: black;
+  }
+
+  .kedonthuoc{
+    display: none;
+    position: fixed;
+    height: auto;
+    bottom: 40px;
+    top: 60px;
+    left: 220px;
+    right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.nav-link{
+    font-weight: bold;
+  }
+
+  .nav-tabs {
+    --bs-nav-tabs-border-width: 1px;
+    --bs-nav-tabs-border-color: #dee2e6;
+    --bs-nav-tabs-border-radius: 0.375rem;
+    --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
+    --bs-nav-tabs-link-active-color: #495057;
+    --bs-nav-tabs-link-active-bg: #0d6efd;
+  }
+
+  .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #f8f9fa;
+    background-color: var(--bs-nav-tabs-link-active-bg);
+    border-color: var(--bs-nav-tabs-link-active-border-color);
+  }

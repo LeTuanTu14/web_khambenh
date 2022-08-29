@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng khám</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../validate.js"></script>
+    <script src="khambenh.js"></script>
+
+</head>
+
+<body>
+    <div class="row" style="background-color: aliceblue;width: 1536px;margin: 0px;">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-start align-items-center">
+                <i class="fa-solid fa-house-medical"
+                    style="font-size: 40px; display: inline-block; margin-top: 10px;margin-bottom: 10px;margin-left: 10px;"></i>
+                <h3 class="tieude"
+                    style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px; display: inline-block;margin-top: 10px;">
+                    Phòng khám đa khoa Tp. Hồ Chí Minh</h3>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid  nav-than2" style="padding: 0px">
+        <div style="width: 200px; height: 100%;display: inline;">
+            <nav class="sidebar card py-2 mb-4"
+                style="width: 200px;height: 100%;position: fixed;bottom: 40px;top: 60px; background-color: aliceblue;border: 0;">
+                <i class="fas fa-user-circle"
+                    style="font-size: 80px; position: fixed;color: rgb(53, 101, 235);left: 0px;right: 0px;margin-left:60px;margin-top: 30px;"></i>
+                <div id="nguoidung" style="font-size: 30px;margin-top: 110px;text-align: center;">tu</div>
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top: 30px">
+
+                    <li class="nav-item" style="width: 100%">
+                        <a class="nav-link active" style="width: 100%" href="#" id="home" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"> Trang chủ </a>
+                    </li>
+                    <li class="nav-item" style="width: 100%">
+                        <a class="nav-link" id="bocso" href="#" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"> Bốc số </a>
+                    </li>
+                    <li class="nav-item" style="width: 100%">
+                        <a class="nav-link sub" href="#" id="chuandoann" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Chuẩn đoán</a>
+                    </li>
+                    <!-- <li class="nav-item has-submenu">
+                        <a class="nav-link" href="#"> Khám bệnh </a>
+                        <ul class="submenu collapse">
+                            <li><a class="nav-link sub" href="#" id="chuandoann">Chuẩn đoán</a></li>
+                            <li><a class="nav-link sub" href="#" id="kham">Khám chuyên sâu</a></li>
+                        </ul>
+                    </li> -->
+
+                    <li class="nav-item" style="width: 100%">
+                        <a class="nav-link" href="#" id="doittbs" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"> Cập nhật thông tin</a>
+                    </li>
+                    <li class="nav-item" style="width: 100%">
+                        <a class="nav-link" href="#" id="dangxuat" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"> Đăng xuất </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#" id="in"> In </a>
+                    </li> -->
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Danh sach cho -->
+
+        <div class="ds" id="ds">
+            <h3 style="text-align:center; margin-top: 10px;">Danh sách chờ</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" value="Lọc danh sách" class="btn btn-success" id="locds">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control" id="locdstheopp">
+                        <option value="0">Bốc số</option>
+                        <option value="1">Hẹn trước</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+            
+            <div class="center">
+                <div style="margin-top: 1rem;">
+                    <table class="table table-striped" style="background-color: white;">
+                        <thead>
+                            <th>Mã hồ sơ</th>
+                            <th>Bệnh nhân</th>
+                            <th>Ngày sinh</th>
+                            <th>Giới tính</th>
+                            <th>Tình trạng bệnh</th>
+                            <th>Khám bệnh</th>
+                        </thead>
+                        <tbody id="listdschokham">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- //////////////////////// -->
+        <div class="chuandoan" id="chuandoan">
+            <h3 style="text-align:center">Hồ sơ bệnh nhân</h3>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-10">
+                    <form action="#" method="POST">
+
+                        <!-- Add hidden form field to handle update -->
+                        <input type="hidden" id="mabn" />
+
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-8">
+                                <label>Họ và tên:</label>
+                                <input type="text" id="tenbn" class="form-control" onblur="ktraTen()" required />
+                                <span class="error" id="tenbnerror"></span>
+                            </div>
+                            <div class="col-md-2" style="margin-top: 0px;">
+                                <label>Tìm theo mã:</label>
+                                <input type="text" id="inputtkbenhnhan" class="form-control">
+                            </div>
+                            <div class="col-md-2" style="margin-top: 24px;">
+                                <input type="button" name="tkbenhnhan" id="tkbenhnhan" class="form-control btn btn-success" value="Tìm kiếm">
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top: 20px">
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Bác sĩ:</label>
+                                    <select name="mabs" class="form-control" id="bacsi">
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Ngày sinh:</label> <input name="ngaysinhbn" onblur="ktraNS()"
+                                        class="form-control" id="ngaysinhbn" type="date" required />
+                                    <span class="error" id="nsbnerror"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Giới tính:</label>
+                                    <br>
+                                    <!-- <input  type="text" id="gioiTinh" class="form-control" /> -->
+                                    <input type="radio" name="gtbn" id="nambn" value="Nam" checked>Nam
+                                    <input type="radio" name="gtbn" id="nubn" value="Nữ" style="margin-left: 10px">Nữ
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group" style="margin-top: 20px">
+                            <label>Địa chỉ:</label>
+                            <input type="text" id="diachibn" class="form-control" required />
+                            <!-- <div class="alert alert-warning" id="diachierror"></div> -->
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px">
+                            <label>Số bảo hiểm:</label>
+                            <input type="text" id="sobhbn" class="form-control" onblur="ktraSBH()" required />
+                            <span class="error" id="sobherror"></span>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px">
+                            <label>Điện thoại:</label>
+                            <input type="text" id="sdtbn" class="form-control" onblur="ktraSDT()" required />
+                            <span class="error" id="sdtbnerror"></span>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px">
+                            <label>Tình trạng bệnh nhân:</label>
+                            <textarea rows="3" cols="70" id="ttbenhnhankham" class="form-control" required></textarea>
+                            <!-- <div class="alert alert-warning" id="ttbenhnhanerror"></div> -->
+                            <span class="error" id="ttbnkhamnerror"></span>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success" id="luuhosobenhnhan"
+                                style="width: 150px;"><span>Lưu</span></button>
+                                <button type="button" class="btn btn-success ms-3" id="luuhosobenhnhanvahen"
+                                style="width: 150px;"><span>Lưu và hẹn</span></button>
+                            <button type="button" class="btn btn-danger ms-3" style="width: 150px;" id="huychuandoan">Hủy</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="col-lg-1"></div>
+            </div>
+
+        </div>
+        <!-- ///////////////////////////// -->
+        <div class="khambenh" id="khambenh">
+            <h3 style="text-align:center; margin-top: 10px;font-weight: bold;">Khám bệnh nhân</h3>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+                    <table>
+                        <tr>
+                            <td class="td1">Mã số bệnh nhân: </td>
+                            <td id="ttmabn" class="td2">222</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Họ và tên:</td>
+                            <td id="tthoten" class="td2">Le Thanh Thanh</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Ngày sinh:</td>
+                            <td id="ttngaysinh" class="td2">13/3/2000</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Giới tính:</td>
+                            <td id="ttgioiTinh" class="td2">Nam</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Địa chỉ:</td>
+                            <td id="ttdiachi" class="td2">Ben luc Long An</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
+
+                <div class="col-lg-4" style="right: 0px">
+                    <table>
+                        <tr>
+                            <td class="td1">Bác sĩ:</td>
+                            <td id="ttbacsi" class="td2">Bs. Le Long Lan</td>
+                        </tr>
+
+                        <tr>
+                            <td class="td1">Khoa:</td>
+                            <td id="ttkhoa" class="td2">Tay mui mieng</td>
+                        </tr>
+
+                        <tr>
+                            <td class="td1">Tình trạng bệnh:</td>
+                            <td id="ttttbenhnhan" class="td2">Tay mui mieng</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-lg-1">
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-10">
+                    <form action="#" method="POST">
+
+                        <!-- Add hidden form field to handle update -->
+                        <input type="hidden" id="mabn" />
+
+                        <div class="form-group">
+                            <label>Chuẩn đoán:</label>
+                            <input type="text" id="chuandoanbs" class="form-control" required />
+                            <!-- <div class="alert alert-warning" id="chuandoan"></div> -->
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dịch vụ:</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select name="ldvu" id="ldvu" class="form-control">
+                                        <!-- <option value="" class="form-control">Xet nghiem</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="dvu" id="dvu" class="form-control">
+                                        <!-- <option value="" class="form-control">Xet nghiem Covid-19</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="button" value="Thêm" class="btn btn-success" id="themdv">
+                                </div>
+                            </div>
+                            <div class="row table-wrapper-scroll-y my-custom-scrollbar" style="max-height: 180px">
+                                <table class="table table-striped"
+                                    style="overflow-y: scroll;height: 180px;display: block;width: 100%;">
+                                    <thead style="width: 100%">
+                                        <tr>
+                                            <th style="width: 20%">Loại dịch vụ</th>
+                                            <th style="width: 50%">Tên dịch vụ</th>
+                                            <th style="width: 40%">Giá</th>
+                                            <th style="width: 10%;"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dsdv">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ghi chú:</label>
+                            <textarea rows="2" cols="70" id="ghichubs" class="form-control"></textarea>
+                            <!-- <div class="alert alert-warning" id="gichuerror"></div> -->
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success" id="luuhosokhambenh"
+                                style="width: 150px;"><span>Lưu</span></button>
+                            <button type="button" class="btn btn-danger ms-3" style="width: 150px;" id="huykhambenh">Hủy</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="col-lg-1"></div>
+            </div>
+
+        </div>
+
+        <!-- ke don thuoc -->
+
+        <div class="kedonthuoc" id="kedonthuoc">
+            <div>
+                <div>
+                    <h2
+                        style="margin-top: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: bold;text-align: center;">
+                        Kê đơn thuốc</h2>
+                    <form>
+                        <div class="form-group">
+                            <!-- <label>Toa thuốc:</label> -->
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-12">
+                                    <label for="">Thuốc:</label>
+                                    <select name="dsthuocinput" id="dsthuocinput" class="form-control">
+
+                                    </select>
+                                    <!-- <input type="text" class="form-control" id="tenthuoc" placeholder="Tên thuốc"> -->
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-4">
+                                    <label for="">Số lần ngày:</label>
+                                    <input type="number" class="form-control" id="solanngay" placeholder="Số lần ngày"
+                                        required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Số lượng lần:</label>
+                                    <input type="number" class="form-control" id="soluonglan" required
+                                        placeholder="Số lượng lần">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Tổng cộng:</label>
+                                    <input type="number" class="form-control" id="tongcong" placeholder="Tổng cộng"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-5" style="padding-left: 5px">
+                                    <select name="donvi" class="form-control" id="donvi"
+                                        style="height:35px ;padding: 0px;margin-left: 10px;">
+                                        <option value="Viên">Viên</option>
+                                        <option value="Chai">Chai</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-1" style="padding-left: 5px;"></div>
+                                <div class="col-md-6" style="padding-left: 5px;">
+                                    <select name="pthuc" id="pthuc" class="form-control"
+                                        style="height:35px ;padding: 0px;">
+                                        <option value="Uống">Uống</option>
+                                        <option value="Uống">Tiêm</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-12">
+                                    <input type="button" value="Thêm" class="btn btn-success" id="themthuoc"
+                                        style="width: 150px;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h3
+                                    style="margin-top: 5px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: bold;text-align: center;">
+                                    Danh sách thuốc</h3>
+                            </div>
+                            <div class="row table-wrapper-scroll-y my-custom-scrollbar" style="max-height: 180px">
+                                <table class="table table-striped"
+                                    style="overflow-y: scroll;height: 180px;display: block;width: 100%;">
+                                    <thead style="width: 100%">
+                                        <tr>
+                                            <th style="width: 20%">Tên thuốc</th>
+                                            <th style="width: 20%">Số lần/ngày</th>
+                                            <th style="width: 20%">Số lượng/lần</th>
+                                            <th style="width: 20%">Tổng cộng</th>
+                                            <th style="width: 20%">Đơn vị</th>
+                                            <th style="width: 20%">P.thức</th>
+                                            <th style="width:10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dsthuoc">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                    </form>
+
+                </div>
+
+                <div class="col-lg-1 mt-3"></div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="ghichuthuoc" placeholder="Ghi chú" required>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <input type="button" id="luuthuoc" value="Lưu" class="btn btn-success" style="width: 150px;">
+                    <!-- <input type="button" id="in" value="Xuất đơn thuốc" class="btn btn-success" style="width: 150px;"> -->
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+    <footer>
+        <div class="row">
+            <p style="text-align:center">Phòng khám đa khoa TP.Hồ Chí Minh</p>
+        </div>
+    </footer>
+
+</body>
+
+
+
+<!-- ///////////// -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">Chỉnh sửa thông tin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="formDN" name="formDN" modelAttribute="nguoiDung"
+                    onsubmit="return(validateDN());">
+
+                    <div class="inputWithIcon">
+                        <input id="txtHotenbs" type="text" class="form-control" placeholder="Họ tên" />
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="hotenbsError" class="error"></label>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px">
+                        <!-- <div class="col-md-3">
+
+                        </div> -->
+                        <label>Giới tính:</label>
+                        <!-- <input  type="text" id="gioiTinh" class="form-control" /> -->
+                        <input type="radio" name="gtbs" id="nambs" value="Nam" style="margin-left: 20px;" checked>Nam
+                        <input type="radio" name="gtbs" id="nubs" value="Nữ" style="margin-left: 10px">Nữ
+                    </div>
+
+                    <div class="inputWithIcon">
+                        <input id="txtDiaChibs" type="text" class="form-control" placeholder="Địa chỉ" />
+                        <i class="fas fa-location" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="diachibsError" class="error"></label>
+                    </div>
+
+                    <div class="inputWithIcon">
+                        <input id="txtsdtbs" type="text" class="form-control" placeholder="Số điện thoại" />
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="sdtbsError" class="error"></label>
+                    </div>
+
+                    <div class="inputWithIcon">
+                        <input id="ngaysinhbs" type="date" data-data-format="DD/MM/YYYY" class="form-control" />
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="ngaysinhbsError" class="error"></label>
+                    </div>
+
+                    <div class="inputWithIcon">
+                        <input id="txtkhoabs" type="text" class="form-control" placeholder="Khoa" />
+                        <i class="fas fa-building" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="khoaError" class="error"></label>
+                    </div>
+
+                    <div class="inputWithIcon">
+                        <input id="txtphongbs" type="text" class="form-control" placeholder="Phòng" />
+                        <i class="fad fa-clinic-medical" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label id="phongError" class="error"></label>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12" style="text-align: center">
+                            <!--Chuyen sang trang home chat-->
+                            <button id="updateBS" type="button" class="btn btn-primary btn-block"
+                                style="width: 150px">Cập nhật</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- In hóa don -->
+
+<div class="modal fade" id="indonthuocModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">Đơn thuốc</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div style="padding-left: 10px; padding-right: 0px">
+                    <div align="left" valign="top" bgcolor="#ffe77b" style="background-color: #fff, fl">
+                        <div style="display: flex; flex-direction: column">
+                            <h5>Phòng khám đa khoa TP.Hồ Chí Minh</h4>
+                        </div>
+                        <!-- <div style="display: inline; justify-content: right"> -->
+                        <h5 style="font-weight: 300; display: inline; justify-content: right" id="inngaykham">Ngày
+                            khám: </h5>
+                        <!-- </div> -->
+                        <div style="display: flex; flex: 1; justify-content: center">
+                            <h1 style="font-weight: 300">TOA THUỐC</h1>
+                        </div>
+
+                    </div>
+                </div>
+                <table width="95%">
+                    <tr>
+                        <td width="50%" valign="top" style="background-color: #fff" ,>
+                            <div style="padding-left: 20px; padding-right: 20px; padding-top: 50px">
+                                <strong id="inma"> Mã bệnh nhân:</strong><br /><br />
+                                <strong id="inhoten"> Họ và tên: </strong><br /><br />
+                                <strong id="ingt"> Giới tính: </strong><br /><br />
+                                <strong id="inns"> Năm sinh: </strong><br /><br />
+                            </div>
+                        </td>
+                        <td width="50%" valign="top" style="background-color: #fff" ,>
+                            <div style="padding-left: 20px; padding-right: 20px; padding-top: 50px">
+                                <strong id="indc"> Địa chỉ: </strong><br /><br />
+                                <strong id="insdt"> </strong><br /><br />
+                                <strong id="insbh"> Số bảo hiểm: </strong><br /><br />
+                                <strong id="incd"> Chẩn đoán: </strong><br /><br />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div style="padding-left: 20px; padding-right: 20px; margin-top: 50px">
+                    <table class="table table-striped" width="95%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên thuốc</th>
+                                <th scope="col">Số lượng 1 lần</th>
+                                <th scope="col">Số lần 1 ngày</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Đơn vị</th>
+                                <th scope="col">Phương thức</th>
+                                <th scope="col">Mô tả</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dsinthuoc">
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div style="padding-left: 10px; padding-right: 10px">
+                    <div align="left" valign="top" bgcolor="#ffe77b" style="background-color: #fff">
+                        <div style="display: flex; flex-direction: column;margin-left: 1px;">
+                            <h4 style="text-decoration: underline;" id="inghichu">Ghi chú:</h4>
+                        </div>
+                    </div>
+                    <div style="padding-left: 10px; padding-right: 10px">
+                        <div align="right" valign="top" bgcolor="#ffe77b" style="background-color: #fff">
+                            <div style="display: flex; flex-direction: column;margin-right: 40px;">
+                                <h4 style=" margin-top: 50px;">BÁC SĨ</h4>
+                                <h4 id="intenbs"></h4>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- footermodal -->
+            <div class="modal-footer">
+                <input type="button" id="indonthuoc" value="In đơn thuốc" class="btn btn-success" style="width: 150px;">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</html>
